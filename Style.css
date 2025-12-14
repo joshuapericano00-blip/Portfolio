@@ -1,0 +1,183 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode toggle */
+.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 16px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tag {
+    font-size: 14px;
+    color: gray;
+}
+
+.job-title {
+    font-style: italic;
+    color: gray;
+}
+
+.skills-list {
+    list-style-type: square;
+    padding: 15px;
+    background-color: #C0C0C0; 
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 10px; 
+}
+
+.main {
+    flex: 2;
+    min-width: 300px;
+}
+
+.main h2 {
+    color: #333;
+    margin-bottom: 10px; 
+}
+
+.main p {
+    line-height: 1.8;       
+    text-align: justify;    
+    margin-top: 10px;       
+    margin-bottom: 15px;     
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;              
+    padding: 10px;            
+    margin-top: 4px;         
+    margin-bottom: 10px;      
+    border: 1px solid #ccc;   
+    border-radius: 4px;       
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+form textarea {
+    resize: vertical;         
+    min-height: 100px;        
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;             
+    font-size: 16px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049; 
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #777;
+}
+
+/* Quote styling */
+#quoteDisplay {
+    font-style: italic;
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+#quoteBtn {
+    padding: 8px 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#quoteBtn:hover {
+    background-color: #007bb5;
+}
+
+/* Slideshow styling */
+.slideshow {
+    margin-top: 15px;
+}
+
+.slideshow img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.slideshow-controls {
+    margin-top: 8px;
+}
+
+.slideshow-controls button {
+    padding: 6px 12px;
+    margin: 0 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.slideshow-controls button:hover {
+    background-color: #555;
+}

@@ -1,0 +1,119 @@
+// Toggle Dark Mode
+document.getElementById("themeBtn").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+});
+
+// Edit Job Title
+document.getElementById("editJobBtn").addEventListener("click", function() {
+    let newTitle = prompt("Enter your new job title:");
+    if (newTitle) {
+        document.getElementById("jobTitle").textContent = newTitle;
+    }
+});
+
+// Show/Hide Skills
+document.getElementById("toggleSkillsBtn").addEventListener("click", function() {
+    let skillsSection = document.getElementById("skillsSection");
+    if (skillsSection.style.display === "none") {
+        skillsSection.style.display = "block";
+        this.textContent = "Hide Skills";
+    } else {
+        skillsSection.style.display = "none";
+        this.textContent = "Show Skills";
+    }
+});
+
+// Live Character Counter
+document.getElementById("msgBox").addEventListener("keyup", function() {
+    let maxLength = this.getAttribute("maxlength");
+    let currentLength = this.value.length;
+    document.getElementById("counter").textContent = maxLength - currentLength;
+});
+
+// Form Validation
+function validateForm() {
+    let name = document.getElementById("nameField").value.trim();
+    let email = document.getElementById("emailField").value.trim();
+
+    if (name === "" || email === "") {
+        alert("Name and Email fields cannot be empty!");
+        return false;
+    }
+    return true;
+}
+
+// Display Today’s Date
+window.addEventListener("DOMContentLoaded", function() {
+    let today = new Date();
+    document.getElementById("dateDisplay").textContent = today.toDateString();
+});
+
+// Extra Feature: Greeting Based on Time
+window.addEventListener("DOMContentLoaded", function() {
+    let hours = new Date().getHours();
+    let greeting = "";
+    if (hours < 12) {
+        greeting = "Good Morning, Joshua!";
+    } else if (hours < 18) {
+        greeting = "Good Afternoon, Joshua!";
+    } else {
+        greeting = "Good Evening, Joshua!";
+    }
+
+    // Create greeting element
+    let greetEl = document.createElement("p");
+    greetEl.textContent = greeting;
+    greetEl.style.fontWeight = "bold";
+    greetEl.style.color = "#4CAF50";
+    document.querySelector(".sidebar").prepend(greetEl);
+});
+
+// Random Quote Generator
+const quotes = [
+    "Believe you can and you're halfway there.",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+    "Dream big and dare to fail.",
+    "Your limitation—it’s only your imagination.",
+    "Push yourself, because no one else is going to do it for you.",
+    "Great things never come from comfort zones.",
+    "Don’t stop when you’re tired. Stop when you’re done.",
+    "Wake up with determination. Go to bed with satisfaction.",
+    "Do something today that your future self will thank you for.",
+    "Little things make big days."
+];
+
+document.getElementById("quoteBtn").addEventListener("click", function() {
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
+});
+
+// Simple Slideshow / Carousel
+const images = [
+    "https://via.placeholder.com/300x200?text=Image+1",
+    "https://via.placeholder.com/300x200?text=Image+2",
+    "https://via.placeholder.com/300x200?text=Image+3",
+    "https://via.placeholder.com/300x200?text=Image+4"
+];
+
+let currentIndex = 0;
+const slideImage = document.getElementById("slideImage");
+
+function showImage(index) {
+    slideImage.src = images[index];
+}
+
+document.getElementById("nextBtn").addEventListener("click", function() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+});
+
+document.getElementById("prevBtn").addEventListener("click", function() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+});
+
+// Auto slideshow every 5 seconds
+setInterval(function() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+}, 5000);
