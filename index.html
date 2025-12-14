@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link external JS file -->
+    <script src="script.js" defer></script>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            font-size: 14px;
+            color: gray;
+        }
+
+        .job-title {
+            font-style: italic;
+            color: gray;
+        }
+
+        ul.skills-list {
+            list-style-type: square;
+            padding: 15px;
+            background-color: #C0C0C0; 
+            border-radius: 8px;
+            text-align: left;
+            margin-top: 10px; 
+        }
+
+        .main {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .main h2 {
+            color: #333;
+            margin-bottom: 10px; 
+        }
+
+        .main p {
+            line-height: 1.8;       
+            text-align: justify;    
+            margin-top: 10px;       
+            margin-bottom: 15px;     
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;              
+            padding: 10px;            
+            margin-top: 4px;         
+            margin-bottom: 10px;      
+            border: 1px solid #ccc;   
+            border-radius: 4px;       
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        form textarea {
+            resize: vertical;         
+            min-height: 100px;        
+        }
+
+        form input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;             
+            font-size: 16px;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #45a049; 
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        /* Quote styling */
+        #quoteDisplay {
+            font-style: italic;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
+        #quoteBtn {
+            padding: 8px 16px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #quoteBtn:hover {
+            background-color: #007bb5;
+        }
+
+        /* Slideshow styling */
+        .slideshow {
+            margin-top: 15px;
+        }
+
+        .slideshow img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .slideshow-controls {
+            margin-top: 8px;
+        }
+
+        .slideshow-controls button {
+            padding: 6px 12px;
+            margin: 0 5px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .slideshow-controls button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="sidebar card" id="home">
+            <img src="https://uploads.onecompiler.io/444vex3wh/444vf9nj5/IMG_3882.webp" class="profile-img">
+
+            <h2>Pericano, Joshua</h2>
+            <p class="tag job-title" id="jobTitle">Student of National University</p>
+
+            <!-- Edit Job Title Button -->
+            <button id="editJobBtn">Edit Job Title</button>
+
+            <h3>Contact</h3>
+            <p id="contact">
+                Email: joshuaperiano00@gmail.com<br>
+                Contact No: <strong>09692233404</strong>
+            </p>
+
+            <h3>Skills</h3>
+            <button id="toggleSkillsBtn">Hide Skills</button>
+            <div id="skillsSection">
+                <ul class="skills-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+
+            <!-- Extra Feature Example: Change Theme -->
+            <button id="themeBtn">Toggle Dark Mode</button>
+
+            <!-- Random Quote Generator -->
+            <h3>Motivational Quote</h3>
+            <p id="quoteDisplay">Click the button to get inspired!</p>
+            <button id="quoteBtn">New Quote</button>
+
+            <!-- Simple Slideshow / Carousel -->
+            <h3>Photo Slideshow</h3>
+            <div class="slideshow">
+                <img id="slideImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Slideshow Image">
+                <div class="slideshow-controls">
+                    <button id="prevBtn">Previous</button>
+                    <button id="nextBtn">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main card" id="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a BSIT student at NU Fairview. I enjoy learning new technologies,
+                improving my skills, and working with people to build meaningful projects.
+            </p>
+
+            <h2>Message Me</h2>
+            <form onsubmit="return validateForm()">
+                <label>Name</label><br>
+                <input type="text" id="nameField" name="name"><br>
+
+                <label>Email</label><br>
+                <input type="email" id="emailField" name="email"><br>
+
+                <label>Message</label><br>
+                <textarea id="msgBox" name="message" maxlength="200"></textarea><br>
+                <p>Characters left: <span id="counter">200</span></p>
+
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        WebProg – Web Programming 2025<br>
+        <p id="dateDisplay"></p>
+    </footer>
+</body>
+</html>
